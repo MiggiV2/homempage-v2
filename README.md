@@ -22,7 +22,7 @@ A clean, minimalistic personal website built with HTML and Tailwind CSS. This pr
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/your-username/personal-website.git
+   git clone https://code.mymiggi.de/Miggi/homempage-v2.git
    ```
 
 2. Open the `index.html` file in your browser to view the site locally.
