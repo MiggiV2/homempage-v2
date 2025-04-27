@@ -1,0 +1,23 @@
+name: Build Homepage
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: docker
+    container:
+      image: ghcr.io/catthehacker/ubuntu:act-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build the Docker image
+        run: |
+          export REGISTRY=code.mymiggi.de
+          export IMAGE_NAME=$REGISTRY/miggi/mymiggi-home-v2
+          
+          docker build -t $IMAGE_NAME .
+          docker login -u ${{ env.GITHUB_REPOSITORY_OWNER }} -p ${{ secrets.DOCKER_TOKEN }} $REGISTRY
+          docker push $IMAGE_NAME
