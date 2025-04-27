@@ -19,5 +19,5 @@ jobs:
           export IMAGE_NAME=$REGISTRY/miggi/mymiggi-home-v2
           
           docker build -t $IMAGE_NAME .
-          docker login -u ${{ env.GITHUB_REPOSITORY_OWNER }} -p ${{ secrets.DOCKER_TOKEN }} code.mymiggi.de
+          docker login -u ${{ env.GITHUB_REPOSITORY_OWNER }} -p ${{ secrets.DOCKER_TOKEN }} $REGISTRY
           docker push $IMAGE_NAME
