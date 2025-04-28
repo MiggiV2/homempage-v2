@@ -27,7 +27,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          push: false
+          push: true
           tags: |
             code.mymiggi.de/miggi/mymiggi-home-v2
-            code.mymiggi.de/miggi/mymiggi-home-v2:${{ env.GITHUB_JOB }}
+            code.mymiggi.de/miggi/mymiggi-home-v2:${{ env.GITHUB_RUN_NUMBER }}
