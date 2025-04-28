@@ -29,5 +29,5 @@ jobs:
           context: .
           push: true
           tags: |
+            code.mymiggi.de/miggi/mymiggi-home-v2:dev-${{ env.GITHUB_RUN_NUMBER }}
             code.mymiggi.de/miggi/mymiggi-home-v2
-            code.mymiggi.de/miggi/mymiggi-home-v2:${{ env.GITHUB_RUN_NUMBER }}
