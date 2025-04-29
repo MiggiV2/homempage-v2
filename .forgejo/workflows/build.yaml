@@ -31,3 +31,6 @@ jobs:
           tags: |
             code.mymiggi.de/miggi/mymiggi-home-v2:dev-${{ env.GITHUB_RUN_NUMBER }}
             code.mymiggi.de/miggi/mymiggi-home-v2
+
+      - name: Deploy via Portainer
+        run: curl -v -X POST ${{ secrets.MYMIGGI_HOOK }}
