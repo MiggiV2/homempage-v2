@@ -1,8 +1,18 @@
-# Use the official nginx Alpine image as base
+# Build
+FROM node:22 AS build
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+RUN yarn
+
+COPY . .
+RUN yarn build
+
+# Base
 FROM nginx:alpine-slim
 
-# Copy the website files to the nginx html directory
-COPY . /usr/share/nginx/html
+COPY --from=build usr/src/app/dist /usr/share/nginx/html
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Expose port 80
 EXPOSE 80
